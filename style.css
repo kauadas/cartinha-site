@@ -95,10 +95,10 @@ body {
     z-index: 2;
 }
 
-.sprite-peixe-azul {
+.sprite-tubarao {
     width: 50px;
     height: 35px;
-    background-image: url("sprites/peixes/peixe-azul.png");
+    background-image: url("sprites/peixes/tubarao.png");
     z-index: 2;
 }
 
@@ -128,11 +128,11 @@ body {
 /* Posições das criaturas */
 .peixe-dourado {
     left: 15%;
-    top: 40%;
+    top: 60%;
     animation: flutua 3.2s ease-in-out infinite;
 }
 
-.peixe-azul {
+.tubarao {
     left: 35%;
     top: 55%;
     animation: flutua 3.5s ease-in-out infinite;
@@ -140,7 +140,7 @@ body {
 
 .tubarao-baleia {
     left: 72%;
-    top: 45%;
+    top: 55%;
     transform: translate(-50%, -50%);
 }
 
@@ -151,7 +151,7 @@ body {
 }
 
 .polvo-inteligente {
-    left: 33%;
+    left: 24%;
     top: 30%;
     transform: translate(-50%, -50%);
 }
@@ -281,7 +281,7 @@ body {
     }
 
     .sprite-peixe-dourado,
-    .sprite-peixe-azul {
+    .sprite-tubarao {
         width: 40px;
         height: 28px;
     }
@@ -317,7 +317,7 @@ body {
         top: 20%;
     }
 
-    .peixe-azul {
+    .tubarao {
         left: 35%;
         top: 45%;
     }
@@ -363,7 +363,7 @@ body {
     }
 
     .sprite-peixe-dourado,
-    .sprite-peixe-azul {
+    .sprite-tubarao {
         width: 35px;
         height: 25px;
     }
@@ -405,7 +405,7 @@ body {
     }
 
     .sprite-peixe-dourado,
-    .sprite-peixe-azul {
+    .sprite-tubarao {
         width: 35px;
         height: 25px;
     }
