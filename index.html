@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Aquário Interativo 🌊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="aquario" class="aquario">
+        <!-- Background fundo marinho -->
+        <div class="fundo-marinho"></div>
+        
+        <!-- Peixes e criaturas -->
+        <div class="criatura peixe-dourado" data-arquivo="peixe-dourado.html">
+            <div class="sprite sprite-peixe-dourado"></div>
+        </div>
+        
+        <div class="criatura peixe-azul" data-arquivo="peixe-azul.html">
+            <div class="sprite sprite-peixe-azul"></div>
+        </div>
+        
+        <div class="criatura tubarao-baleia" data-arquivo="tubarao-baleia.html">
+            <div class="sprite sprite-tubarao-baleia"></div>
+        </div>
+        
+        <div class="criatura tartaruga-marinha" data-arquivo="tartaruga.html">
+            <div class="sprite sprite-tartaruga"></div>
+        </div>
+        
+        <div class="criatura polvo-inteligente" data-arquivo="polvo.html">
+            <div class="sprite sprite-polvo"></div>
+        </div>
+        
+        <!-- Bolhas decorativas -->
+        <div class="bolha bolha-1"></div>
+        <div class="bolha bolha-2"></div>
+        <div class="bolha bolha-3"></div>
+        <div class="bolha bolha-4"></div>
+        <div class="bolha bolha-5"></div>
+        
+        <!-- HUD Info -->
+        <div class="hud">
+            <h1 class="titulo">🐠 Aquário Interativo 🌊</h1>
+            <p class="subtitulo">Clique em qualquer criatura para explorar</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

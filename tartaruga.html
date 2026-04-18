@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>🐢 Tartaruga Marinha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #001f3f 0%, #0047AB 50%, #003d80 100%);
+            color: #87CEFA;
+            padding: 20px;
+            orientation: landscape;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(135, 206, 250, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(135, 206, 250, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
+        }
+
+        .volta-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(30, 144, 255, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 2px solid rgba(135, 206, 250, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .volta-link:hover {
+            background: rgba(30, 144, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+        }
+
+        .conteudo {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .conteudo p {
+            margin-bottom: 15px;
+        }
+
+        .conteudo h2 {
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            color: #90EE90;
+            text-shadow: 0 0 8px rgba(144, 238, 144, 0.5);
+        }
+
+        @media (max-height: 400px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .conteudo {
+                font-size: 0.85rem;
+            }
+
+            .conteudo h2 {
+                font-size: 1rem;
+                margin: 15px 0 8px 0;
+            }
+        }
+
+        @media (orientation: portrait) {
+            body {
+                transform: rotate(90deg);
+                transform-origin: left top;
+                width: 100vh;
+                height: 100vw;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐢 Tartaruga Marinha</h1>
+            <a href="index.html" class="volta-link">← Voltar</a>
+        </div>
+
+        <div class="conteudo">
+            <p>A Tartaruga Marinha é um animal antigo e sábio que percorre os oceanos há milhões de anos. Com sua carapaça robusta e movimento lento e gracioso, ela representa a sabedoria e a perseverança do mundo marinho.</p>
+
+            <h2>📌 Características</h2>
+            <p>Carapaça verde-acinzentada, corpo compacto, nadadeiras poderosas e movimento deliberado na água.</p>
+
+            <h2>🏠 Habitat</h2>
+            <p>Habita oceanos tropicais e subtropicais, viajando migrando milhares de quilômetros durante suas vidas extraordinárias.</p>
+
+            <h2>🍽️ Alimentação</h2>
+            <p>Se alimenta principalmente de algas marinhas, esponjas e pequenos crustáceos. Algumas espécies podem ser carnívoras quando jovens.</p>
+
+            <h2>💡 Curiosidades</h2>
+            <p>As tartarugas marinhas podem viver mais de 100 anos! Elas retornam à mesma praia onde nasceram para desovar, navagando através de milhares de quilômetros de oceano para encontrar o caminho de volta. É considerada um dos animais mais longevos do planeta.</p>
+        </div>
+    </div>
+</body>
+</html>
