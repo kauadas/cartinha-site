@@ -66,8 +66,8 @@ body {
 }
 
 .local-tubarao-baleia {
-    width: 500px;
-    height: 300px;
+    width: 250px;
+    height: 225px;
     background-image: url("sprites/locais/local_tubarao_baleia.png");
 }
 
@@ -302,13 +302,13 @@ body {
     }
 
     .local-tubarao-baleia {
-        width: 375px;
-        height: 255px;
+        width: 150px;
+        height: 150px;
     }
 
     .local-polvo {
-        width: 285px;
-        height: 285px;
+        width: 150px;
+        height: 150px;
     }
 
     /* Ajustar posições para telas menores */
