@@ -21,8 +21,9 @@ body {
     width: 100%;
     height: 100%;
     background-image: url("sprites/background.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
@@ -65,8 +66,8 @@ body {
 }
 
 .sprite-tubarao-baleia {
-    width: 80px;
-    height: 45px;
+    width: 100px;
+    height: 65px;
     background-image: url("sprites/tubarao-baleia.png");
 }
 
@@ -84,32 +85,32 @@ body {
 
 /* Posições das criaturas */
 .peixe-dourado {
-    left: 100px;
-    top: 100px;
+    left: 15%;
+    top: 20%;
     animation: flutua 3.2s ease-in-out infinite;
 }
 
 .peixe-azul {
-    left: 600px;
-    top: 300px;
+    left: 35%;
+    top: 45%;
     animation: flutua 3.5s ease-in-out infinite;
 }
 
 .tubarao-baleia {
-    left: 82%;
-    top: 60%;
+    left: 72%;
+    top: 45%;
     animation: flutua 4s ease-in-out infinite;
 }
 
 .tartaruga-marinha {
-    left: 800px;
-    top: 200px;
+    left: 55%;
+    top: 15%;
     animation: flutua 3.8s ease-in-out infinite;
 }
 
 .polvo-inteligente {
-    left: 27%;
-    top: 45%;
+    left: 33%;
+    top: 30%;
     animation: flutua 4.2s ease-in-out infinite;
 }
 
@@ -211,33 +212,6 @@ body {
     margin: 0;
 }
 
-.fullscreen-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(30, 144, 255, 0.8);
-    color: white;
-    border: 2px solid rgba(135, 206, 250, 0.8);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-    display: none;
-}
-
-.fullscreen-btn:hover {
-    background: rgba(30, 144, 255, 1);
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
-}
-
-.fullscreen-btn:active {
-    transform: scale(0.95);
-}
-
 @keyframes brilho {
     0%, 100% {
         opacity: 1;
@@ -283,6 +257,32 @@ body {
     .sprite-polvo {
         width: 40px;
         height: 50px;
+    }
+
+    /* Ajustar posições para telas menores */
+    .peixe-dourado {
+        left: 15%;
+        top: 20%;
+    }
+
+    .peixe-azul {
+        left: 35%;
+        top: 45%;
+    }
+
+    .tubarao-baleia {
+        left: 72%;
+        top: 45%;
+    }
+
+    .tartaruga-marinha {
+        left: 55%;
+        top: 15%;
+    }
+
+    .polvo-inteligente {
+        left: 33%;
+        top: 30%;
     }
 }
 
@@ -351,18 +351,30 @@ body {
         width: 35px;
         height: 45px;
     }
-}
 
-/* MOSTRAR BOTÃO FULLSCREEN APENAS EM DISPOSITIVOS MÓVEIS */
-@media (max-width: 800px) {
-    .fullscreen-btn {
-        display: block !important;
+    /* Ajustar posições para telas muito pequenas */
+    .peixe-dourado {
+        left: 15%;
+        top: 20%;
     }
-}
 
-/* MOSTRAR BOTÃO FULLSCREEN APENAS EM DISPOSITIVOS MÓVEIS */
-@media (max-width: 800px) {
-    .fullscreen-btn {
-        display: block !important;
+    .peixe-azul {
+        left: 35%;
+        top: 45%;
+    }
+
+    .tubarao-baleia {
+        left: 72%;
+        top: 45%;
+    }
+
+    .tartaruga-marinha {
+        left: 55%;
+        top: 15%;
+    }
+
+    .polvo-inteligente {
+        left: 33%;
+        top: 30%;
     }
 }
