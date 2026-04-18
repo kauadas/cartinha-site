@@ -13,8 +13,8 @@ html, body {
 body {
     font-family: 'Arial', sans-serif;
     background: #001f3f;
-    /* Força landscape em mobile */
-    
+    display: flex;
+    flex-direction: column;
 }
 
 .aquario {
@@ -24,6 +24,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    overflow: hidden;
 }
 
 /* CRIATURAS */
@@ -180,19 +181,25 @@ body {
 /* HUD */
 .hud {
     position: absolute;
-    top: 50%;
+    top: 20px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
     z-index: 10;
     pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(135, 206, 250, 0.6);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .titulo {
     font-size: 2.5rem;
     color: #87CEFA;
     text-shadow: 0 0 15px rgba(135, 206, 250, 0.8);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    margin-top: 0;
     animation: brilho 2s infinite;
 }
 
@@ -201,6 +208,7 @@ body {
     color: #87CEFA;
     opacity: 0.8;
     text-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+    margin: 0;
 }
 
 @keyframes brilho {
@@ -214,66 +222,19 @@ body {
     }
 }
 
-/* RESPONSIVO LANDSCAPE */
-@media (orientation: portrait) {
-    html, body {
-        min-height: 100vh;
-        min-width: 100vw;
-    }
-
-    body {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        width: 100vh;
-        height: 100vw;
-        position: absolute;
-        top: 100%;
-        left: 0;
-    }
-
-    .aquario {
-        transform: rotate(-90deg);
-    }
-}
-
-@media (max-height: 400px) {
+/* RESPONSIVO MOBILE LANDSCAPE */
+@media (max-width: 800px) and (orientation: landscape) {
     .titulo {
         font-size: 1.8rem;
     }
 
     .subtitulo {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
-    .sprite-peixe-dourado,
-    .sprite-peixe-azul {
-        width: 35px;
-        height: 25px;
-    }
-
-    .sprite-tubarao-baleia {
-        width: 60px;
-        height: 35px;
-    }
-
-    .sprite-tartaruga {
-        width: 40px;
-        height: 35px;
-    }
-
-    .sprite-polvo {
-        width: 35px;
-        height: 45px;
-    }
-
-    .fundo-marinho {
-        height: 15%;
-    }
-}
-
-@media (max-width: 600px) {
-    .titulo {
-        font-size: 1.5rem;
+    .hud {
+        padding: 10px 20px;
+        top: 10px;
     }
 
     .sprite-peixe-dourado,
@@ -298,20 +259,69 @@ body {
     }
 }
 
-/* Para forçar landscape em telas muito pequenas */
-@media (orientation: portrait) and (max-width: 480px) {
-    html {
-        width: 100vh;
-        height: 100vw;
+@media (max-height: 400px) {
+    .titulo {
+        font-size: 1.5rem;
     }
 
-    body {
-        width: 100vh;
-        height: 100vw;
+    .subtitulo {
+        font-size: 0.7rem;
     }
 
-    .aquario {
-        width: 100vh;
-        height: 100vw;
+    .hud {
+        padding: 10px 20px;
+    }
+
+    .sprite-peixe-dourado,
+    .sprite-peixe-azul {
+        width: 35px;
+        height: 25px;
+    }
+
+    .sprite-tubarao-baleia {
+        width: 60px;
+        height: 35px;
+    }
+
+    .sprite-tartaruga {
+        width: 40px;
+        height: 35px;
+    }
+
+    .sprite-polvo {
+        width: 35px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 600px) {
+    .titulo {
+        font-size: 1.4rem;
+    }
+
+    .hud {
+        padding: 8px 15px;
+        top: 8px;
+    }
+
+    .sprite-peixe-dourado,
+    .sprite-peixe-azul {
+        width: 35px;
+        height: 25px;
+    }
+
+    .sprite-tubarao-baleia {
+        width: 60px;
+        height: 35px;
+    }
+
+    .sprite-tartaruga {
+        width: 40px;
+        height: 35px;
+    }
+
+    .sprite-polvo {
+        width: 35px;
+        height: 45px;
     }
 }
