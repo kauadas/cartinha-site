@@ -77,6 +77,12 @@ body {
     background-image: url("sprites/locais/local_polvo.png");
 }
 
+.local-shark {
+    width: 360px;
+    height: 270px;
+    background-image: url("sprites/locais/local_shark.png");
+}
+
 /* Sprites - usando PNGs ou SVGs */
 .sprite {
     position: absolute;
@@ -100,6 +106,7 @@ body {
     height: 35px;
     background-image: url("sprites/peixes/tubarao.png");
     z-index: 2;
+    animation: flutua 3.5s ease-in-out infinite;
 }
 
 .sprite-tubarao-baleia {
@@ -134,8 +141,8 @@ body {
 
 .tubarao {
     left: 35%;
-    top: 55%;
-    animation: flutua 3.5s ease-in-out infinite;
+    top: 65%;
+    
 }
 
 .tubarao-baleia {
@@ -311,6 +318,11 @@ body {
         height: 150px;
     }
 
+    .local-shark {
+        width: 150px;
+        height: 112px;
+    }
+
     /* Ajustar posições para telas menores */
     .peixe-dourado {
         left: 15%;
@@ -402,6 +414,11 @@ body {
     .local-polvo {
         width: 150px;
         height: 150px;
+    }
+
+    .local-shark {
+        width: 150px;
+        height: 112px;
     }
 
     .sprite-peixe-dourado,

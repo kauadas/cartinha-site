@@ -149,27 +149,20 @@ function rand(seed){
 
 
 // ===== MENSAGEM =====
-const mensagens=[
-    "Eu escolheria você de novo.",
-    "Mesmo sem entender tudo, eu fico.",
-    "Você virou meu lugar favorito.",
-    "Entre bilhões... ainda é você."
-];
 
-document.getElementById("mensagem").textContent =
-    mensagens[seed % mensagens.length];
+document.getElementById("mensagem").textContent = "“No meio de tudo isso… foi você.”";
 
 // ===== NPC DIÁLOGO =====
 const dialogos = [
-    "Eu fico olhando pra essas estrelas...",
-    "E pensando como algumas coisas simplesmente acontecem.",
-    "Tipo encontrar alguém no meio de tudo isso.",
-    "Estranho né?",
+    "Tá vendo esse céu?",
+    "Ele tava assim naquele dia.",
+    "Eu não sabia que algo importante tava começando ali.",
     "...",
-    "Mas eu acho bonito."
-];
+    "Mas de alguma forma, tava.",
+    "E ainda tá."
+];;
 
-let i = 0;
+let i = -1;
 
 document.getElementById("btn").onclick = () => {
     i = (i + 1) % dialogos.length;
@@ -178,6 +171,8 @@ document.getElementById("btn").onclick = () => {
 
 // clique direto no polvo também avança
 document.getElementById("polvo").onclick = () => {
+    document.getElementById("polvo").style.transform = "scale(1.1)";
+    setTimeout(()=>document.getElementById("polvo").style.transform="scale(1)",150);
     i = (i + 1) % dialogos.length;
     document.getElementById("texto").textContent = dialogos[i];
 };

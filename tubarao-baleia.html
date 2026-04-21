@@ -1,145 +1,305 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>🦈 Tubarão Baleia</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐋 Memórias</title>
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(180deg, #001f3f 0%, #0047AB 50%, #003d80 100%);
-            color: #87CEFA;
-            padding: 20px;
-            orientation: landscape;
-        }
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg,#001f3f,#003366);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid rgba(135, 206, 250, 0.5);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-        }
+.container{
+    width:min(90vw,700px);
+    background:rgba(0,0,0,0.7);
+    border-radius:16px;
+    padding:25px;
+}
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            border-bottom: 2px solid rgba(135, 206, 250, 0.3);
-            padding-bottom: 15px;
-        }
+.header{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    margin-bottom:15px;
+}
 
-        .header h1 {
-            font-size: 1.8rem;
-            text-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
-        }
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .volta-link {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(30, 144, 255, 0.8);
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            border: 2px solid rgba(135, 206, 250, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
+.voltar{
+    background:#1e90ff;
+    padding:6px 12px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+}
 
-        .volta-link:hover {
-            background: rgba(30, 144, 255, 1);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
-        }
+.sub{
+    opacity:0.7;
+    font-size:0.9rem;
+}
 
-        .conteudo {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
+/* oceano */
+.oceano{
+    position:relative;
+    height:350px;
+    overflow:hidden;
+    border-radius:12px;
+    background: radial-gradient(circle at top, #003f7f, #000);
+}
 
-        .conteudo p {
-            margin-bottom: 15px;
-        }
+/* NÃO BLOQUEIA CLIQUE */
+.oceano::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:30px 30px;
+    opacity:0.3;
+    pointer-events:none;
+}
 
-        .conteudo h2 {
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-            color: #708090;
-            text-shadow: 0 0 8px rgba(112, 128, 144, 0.5);
-        }
+/* tubarão */
+#tubarao{
+    position:absolute;
+    width:140px;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0.9;
+    animation: flutuar 4s ease-in-out infinite;
+    cursor:pointer;
+    z-index:2;
+}
 
-        @media (max-height: 400px) {
-            .container {
-                padding: 20px;
-            }
+@keyframes flutuar{
+    0%,100% { transform:translate(-50%,0); }
+    50% { transform:translate(-50%,-8px); }
+}
 
-            .header h1 {
-                font-size: 1.4rem;
-            }
+/* bolhas */
+.bolha{
+    position:absolute;
+    bottom:-50px;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.25);
+    border:1px solid rgba(255,255,255,0.6);
+    cursor:pointer;
+    animation:subir linear forwards;
+    z-index:5;
+}
 
-            .conteudo {
-                font-size: 0.85rem;
-            }
+@keyframes subir{
+    to{
+        transform:translateY(-450px);
+        opacity:0;
+    }
+}
 
-            .conteudo h2 {
-                font-size: 1rem;
-                margin: 15px 0 8px 0;
-            }
-        }
+/* overlay */
+#overlay{
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,0.75);
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+    z-index:10;
+}
 
-        @media (orientation: portrait) {
-            body {
-                transform: rotate(90deg);
-                transform-origin: left top;
-                width: 100vh;
-                height: 100vw;
-                position: absolute;
-                top: 100%;
-                left: 0;
-            }
-        }
-    </style>
+#overlay.show{
+    opacity:1;
+}
+
+#overlay img{
+    max-width:160px;
+    border-radius:8px;
+}
+
+#overlay p{
+    margin-top:10px;
+    font-style:italic;
+}
+
+/* diálogo */
+.dialogo{
+    margin-top:15px;
+    text-align:center;
+    opacity:0.85;
+}
+
+button{
+    margin-top:10px;
+    padding:6px 12px;
+    border:none;
+    border-radius:10px;
+    background:#6a5acd;
+    color:white;
+    cursor:pointer;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🦈 Tubarão Baleia</h1>
-            <a href="index.html" class="volta-link">← Voltar</a>
-        </div>
 
-        <div class="conteudo">
-            <p>O majestoso Tubarão Baleia é o maior peixe do mundo, um gigante pacífico que impressiona todos os que o veem. Apesar de seu tamanho intimidador, é um animal gentil e que se alimenta apenas de pequenas criaturas.</p>
+<div class="container">
 
-            <h2>📌 Características</h2>
-            <p>Tamanho colossal (pode crescer até 18 metros), corpo cinza-azulado com manchas brancas, e boca imensa.</p>
-
-            <h2>🏠 Habitat</h2>
-            <p>Vive em oceanos tropicais e subtropicais, sempre em busca de águas ricas em plâncton onde pode se alimentar.</p>
-
-            <h2>🍽️ Alimentação</h2>
-            <p>É um alimentador por filtragem que consome principalmente zooplâncton e pequenos peixes. Pode consumir toneladas de alimento por dia apenas deixando a água passar por suas brânquias.</p>
-
-            <h2>💡 Curiosidades</h2>
-            <p>Apesar de ser o maior peixe vivo, o tubarão baleia é completamente inofensivo para humanos. Sua pele é coberta de dentes minúsculos chamados "dentículos" que reduzem o arrasto na água, tornando-o um nadador incrivelmente eficiente.</p>
-        </div>
+<div class="header">
+    <div class="topbar">
+        <h2>🐋 Coisas que me lembram você</h2>
+        <a href="index.html" class="voltar">← Voltar</a>
     </div>
+    <p class="sub">Estoure as bolhas… são pequenas lembranças.</p>
+</div>
+
+<div class="oceano" id="oceano">
+
+    <img src="sprites/peixes/tubarao-baleia.png" id="tubarao">
+
+    <div id="overlay">
+        <img id="imgMemoria">
+        <p id="textoMemoria"></p>
+    </div>
+
+</div>
+
+<div class="dialogo" id="texto">
+    Às vezes eu encontro coisas por aqui...
+</div>
+
+<button id="next">Próximo</button>
+
+</div>
+
+<script>
+
+// ===== MEMÓRIAS =====
+const memorias = [
+    {
+        img: "https://cdnm.westwing.com.br/glossary/uploads/br/2023/08/11191434/lirio-azul.png",
+        texto: "suas flores favoritas..."
+    },
+    {
+        img: "https://images.unsplash.com/photo-1566342088293-38debd381c63",
+        texto: "o mar de noite..."
+    },
+    {
+        img: "imgs/musica.jpg",
+        texto: "essa música sempre me lembra você."
+    },
+    {
+        img: "imgs/cafe.jpg",
+        texto: "até o simples fica diferente."
+    }
+];
+
+let timeout;
+
+// ===== CRIAR BOLHA =====
+function criarBolha(){
+    const b = document.createElement("div");
+    b.className = "bolha";
+
+    b.style.left = Math.random()*90 + "%";
+    b.style.animationDuration = (7 + Math.random()*3) + "s";
+
+    document.getElementById("oceano").appendChild(b);
+
+    setTimeout(()=>b.remove(),9000);
+}
+
+// ===== ESTOURAR =====
+function estourar(b){
+
+    // para animação
+    b.style.animation = "none";
+
+    const rect = b.getBoundingClientRect();
+
+    b.style.position = "fixed";
+    b.style.left = rect.left + "px";
+    b.style.top = rect.top + "px";
+
+    b.style.transition = "all 0.2s ease-out";
+    b.style.transform = "scale(1.6)";
+    b.style.opacity = "0";
+
+    setTimeout(()=>b.remove(),200);
+
+    const m = memorias[Math.floor(Math.random()*memorias.length)];
+
+    const overlay = document.getElementById("overlay");
+
+    document.getElementById("imgMemoria").src = m.img;
+    document.getElementById("textoMemoria").textContent = m.texto;
+
+    overlay.classList.add("show");
+
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(()=>{
+        overlay.classList.remove("show");
+    },4500);
+}
+
+// ===== DELEGAÇÃO DE CLIQUE (NÃO FALHA) =====
+document.getElementById("oceano").addEventListener("click", (e)=>{
+    if(e.target.classList.contains("bolha")){
+        estourar(e.target);
+    }
+});
+
+// spawn contínuo
+setInterval(criarBolha,2000);
+
+// ===== TUBARÃO =====
+const tubarao = document.getElementById("tubarao");
+
+tubarao.onclick = () => {
+    tubarao.style.transform = "translateX(-50%) scale(1.08)";
+    setTimeout(()=>{
+        tubarao.style.transform = "translateX(-50%) scale(1)";
+    },200);
+};
+
+// ===== DIÁLOGO =====
+const falas = [
+    "...",
+    "Às vezes eu encontro coisas por aqui.",
+    "Coisas pequenas.",
+    "Que me fazem lembrar de você.",
+    "...",
+    "Tenta pegar uma."
+];
+
+let i=1;
+
+document.getElementById("next").onclick=()=>{
+    i=(i+1)%falas.length;
+    document.getElementById("texto").textContent=falas[i];
+};
+
+</script>
+
 </body>
 </html>
