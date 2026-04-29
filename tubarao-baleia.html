@@ -130,10 +130,12 @@ body{
 
 #overlay.show{
     opacity:1;
+    pointer-events:auto;
 }
 
 #overlay img{
     max-width:160px;
+    max-height: 100px;
     border-radius:8px;
 }
 
@@ -158,6 +160,17 @@ button{
     color:white;
     cursor:pointer;
 }
+
+.play {
+    scale: 1;
+    margin-top:20px;
+    
+    border:none;
+    border-radius:10px;
+    background:#32cd32;
+    color:white;
+}
+
 </style>
 </head>
 
@@ -206,12 +219,31 @@ const memorias = [
     },
     {
         img: "imgs/musica.jpg",
-        texto: "essa música sempre me lembra você."
+        texto: "essa música sempre me lembra você.",
+        musica: 'https://open.spotify.com/intl-pt/track/2QjOHCTQ1Jl3zawyYOpxh6?si=2477b5bcda7b46a6'
     },
     {
-        img: "imgs/cafe.jpg",
-        texto: "até o simples fica diferente."
-    }
+        img: "imgs/twilight.jpg",
+        texto: "e claro, a saga Crepúsculo."
+    },
+    {
+        img: "imgs/conjuring.jpg",
+        texto: 'Seu filme de "romance" favorito.',
+        musica: 'https://open.spotify.com/intl-pt/track/44AyOl4qVkzS48vBsbNXaC?si=7fa3520c20784274'
+    },
+    {
+        img: "imgs/chale.jpeg",
+        texto: "O sonho de um chalé na floresta."
+    },
+    {
+        img: "imgs/reze.jpg",
+        texto: "A personagem Reze."
+    },
+    {
+        img: "imgs/scooby.jpeg",
+        texto: "Seu desenho favorito, com um enfoque na Velma e Salsicha."
+    }    
+
 ];
 
 let timeout;
@@ -254,6 +286,21 @@ function estourar(b){
     document.getElementById("imgMemoria").src = m.img;
     document.getElementById("textoMemoria").textContent = m.texto;
 
+    if(m.musica && !document.querySelector("#overlay .play")){
+        const button = document.createElement("a");
+        button.className = "play";
+        button.textContent = "Ouvir";
+        overlay.appendChild(button);
+    }
+
+    else if (document.querySelector("#overlay .play")){
+        document.querySelector("#overlay .play").remove();
+    }
+
+    if (m.musica){
+        document.querySelector("#overlay .play").href = m.musica;
+    }
+
     overlay.classList.add("show");
 
     if (timeout) clearTimeout(timeout);
@@ -266,6 +313,10 @@ function estourar(b){
 document.getElementById("oceano").addEventListener("click", (e)=>{
     if(e.target.classList.contains("bolha")){
         estourar(e.target);
+    }
+
+    else if(e.target.classList.contains("play")){
+        e.target.click();
     }
 });
 
@@ -280,6 +331,9 @@ tubarao.onclick = () => {
     setTimeout(()=>{
         tubarao.style.transform = "translateX(-50%) scale(1)";
     },200);
+
+    i = (i + 1) % falas.length;
+    document.getElementById("texto").textContent = falas[i];
 };
 
 // ===== DIÁLOGO =====

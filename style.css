@@ -94,13 +94,6 @@ body {
     background-position: center;
 }
 
-.sprite-peixe-dourado {
-    width: 50px;
-    height: 35px;
-    background-image: url("sprites/peixes/peixe-dourado.png");
-    z-index: 2;
-}
-
 .sprite-tubarao {
     width: 50px;
     height: 35px;
@@ -117,13 +110,6 @@ body {
     animation: flutua 4s ease-in-out infinite;
 }
 
-.sprite-tartaruga {
-    width: 55px;
-    height: 45px;
-    background-image: url("sprites/peixes/tartaruga.png");
-    z-index: 2;
-}
-
 .sprite-polvo {
     width: 50px;
     height: 60px;
@@ -133,12 +119,6 @@ body {
 }
 
 /* Posições das criaturas */
-.peixe-dourado {
-    left: 15%;
-    top: 60%;
-    animation: flutua 3.2s ease-in-out infinite;
-}
-
 .tubarao {
     left: 35%;
     top: 65%;
@@ -149,12 +129,6 @@ body {
     left: 72%;
     top: 55%;
     transform: translate(-50%, -50%);
-}
-
-.tartaruga-marinha {
-    left: 55%;
-    top: 45%;
-    animation: flutua 3.8s ease-in-out infinite;
 }
 
 .polvo-inteligente {
