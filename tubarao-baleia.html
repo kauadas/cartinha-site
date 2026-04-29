@@ -293,7 +293,7 @@ function estourar(b){
         overlay.appendChild(button);
     }
 
-    else if (document.querySelector("#overlay .play")){
+    else if (!m.musica && document.querySelector("#overlay .play")){
         document.querySelector("#overlay .play").remove();
     }
 
